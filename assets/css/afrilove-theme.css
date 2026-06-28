@@ -1,0 +1,319 @@
+/* ============================================================================
+   AfriLove World — Thème "Soft" (clair · aéré · marron léger)
+   Inspiration : dashboards épurés type SaaS. Beaucoup de blanc, ombres douces,
+   le marron n'est qu'un accent discret. Surcouche par-dessus Bootstrap :
+   aucune classe n'est supprimée, on ne fait qu'embellir. Données intactes.
+   ============================================================================ */
+
+:root {
+  --af-bg        : #F4F2EE;   /* fond de page, blanc cassé très légèrement chaud */
+  --af-bg-2      : #FBFAF8;
+  --af-card      : #FFFFFF;
+  --af-ink       : #1F1A16;   /* texte principal, presque noir */
+  --af-ink-soft  : #6B645C;
+  --af-muted     : #9A938A;
+  --af-line      : #ECE7DF;   /* bordures très claires */
+  --af-line-2    : #F2EEE7;
+
+  /* Accent marron LÉGER */
+  --af-brown     : #B08968;
+  --af-brown-ink : #8A6A4B;   /* pour texte/contraste */
+  --af-brown-soft: rgba(176,137,104,.12);
+  --af-brown-tint: #F3ECE3;
+
+  /* Couleurs sémantiques discrètes (badges) */
+  --af-green     : #46A86B;
+  --af-green-bg  : #E7F4ec;
+  --af-amber     : #C98A1E;
+  --af-amber-bg  : #FBF1DD;
+  --af-blue      : #5B86C9;
+  --af-blue-bg   : #EAF1FB;
+  --af-pink      : #C7689E;
+  --af-pink-bg   : #FBEAF4;
+
+  --af-r-sm : 14px;
+  --af-r-md : 20px;
+  --af-r-lg : 26px;
+
+  --af-shadow   : 0 1px 2px rgba(31,26,22,.05), 0 6px 18px rgba(31,26,22,.04);
+  --af-shadow-2 : 0 10px 30px rgba(31,26,22,.10);
+
+  --af-ease : cubic-bezier(.22,1,.36,1);
+}
+
+/* ----------------------------------------------------------------- Base --- */
+body {
+  background: var(--af-bg) !important;
+  color: var(--af-ink) !important;
+  font-family: "Montserrat", system-ui, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Garde-fou : Font Awesome garde toujours sa police d'icônes. */
+.fa, .fas, .far, .fal, .fad, .fab, .fa-solid, .fa-regular, .fa-brands,
+[class^="fa-"], [class*=" fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "Font Awesome 5 Free", "FontAwesome" !important;
+}
+.fab, .fa-brands { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important; }
+
+.page-body { position: relative; z-index: 1; }
+
+/* ============================================================ DASHBOARD === */
+
+/* En-tête d'accueil ------------------------------------------------------- */
+.afri-greeting {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  animation: af-rise .6s var(--af-ease) both;
+}
+.afri-greeting-sub { font-size: .9rem; margin: 4px 0 0; }
+.afri-greeting-date { padding: 9px 18px; font-size: .82rem; }
+.afri-section-label {
+  display: block; font-size: .72rem; text-transform: uppercase;
+  margin: 20px 0 4px;
+}
+.afri-greeting-title {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.02em;
+  color: var(--af-ink) !important;
+  -webkit-text-fill-color: var(--af-ink);
+}
+.afri-greeting-sub { color: var(--af-muted) !important; }
+.afri-greeting-date {
+  background: var(--af-card) !important;
+  border: 1px solid var(--af-line) !important;
+  border-radius: 12px !important;
+  color: var(--af-ink-soft) !important;
+  box-shadow: var(--af-shadow);
+  font-weight: 600 !important;
+}
+.afri-section-label {
+  color: var(--af-muted) !important;
+  font-weight: 700 !important;
+  letter-spacing: .12em !important;
+}
+
+/* Grille Bento ------------------------------------------------------------ */
+.afri-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+  margin-top: 8px;
+}
+.afri-bento > * { grid-column: span 3; min-width: 0; }
+.afri-bento .b-span-6 { grid-column: span 6; }
+.afri-bento .b-span-4 { grid-column: span 4; }
+.afri-bento .b-span-12 { grid-column: span 12; }
+
+@media (max-width: 1199px){ .afri-bento > *{grid-column:span 4} .afri-bento .b-span-6{grid-column:span 6} }
+@media (max-width: 991px) { .afri-bento > *{grid-column:span 6} .afri-bento .b-span-6,.afri-bento .b-span-4{grid-column:span 6} }
+@media (max-width: 575px) { .afri-bento > *,.afri-bento .b-span-6,.afri-bento .b-span-4{grid-column:span 12} }
+
+/* Carte de base ----------------------------------------------------------- */
+.bento-card {
+  position: relative;
+  background: var(--af-card);
+  border: 1px solid var(--af-line);
+  border-radius: var(--af-r-md);
+  padding: 24px;
+  box-shadow: var(--af-shadow);
+  overflow: hidden;
+  transition: transform .4s var(--af-ease), box-shadow .4s var(--af-ease);
+  animation: af-rise .6s var(--af-ease) both;
+}
+.bento-card:hover { transform: translateY(-4px); box-shadow: var(--af-shadow-2); }
+
+/* Entrée échelonnée */
+.afri-bento > *:nth-child(1){animation-delay:.02s}
+.afri-bento > *:nth-child(2){animation-delay:.05s}
+.afri-bento > *:nth-child(3){animation-delay:.08s}
+.afri-bento > *:nth-child(4){animation-delay:.11s}
+.afri-bento > *:nth-child(5){animation-delay:.14s}
+.afri-bento > *:nth-child(6){animation-delay:.17s}
+.afri-bento > *:nth-child(7){animation-delay:.20s}
+.afri-bento > *:nth-child(8){animation-delay:.23s}
+.afri-bento > *:nth-child(9){animation-delay:.26s}
+.afri-bento > *:nth-child(10){animation-delay:.29s}
+.afri-bento > *:nth-child(11){animation-delay:.32s}
+.afri-bento > *:nth-child(12){animation-delay:.35s}
+.afri-bento > *:nth-child(13){animation-delay:.38s}
+.afri-bento > *:nth-child(14){animation-delay:.41s}
+
+/* Tuile statistique (épurée) --------------------------------------------- */
+.bento-stat { display:flex; flex-direction:column; gap:18px; min-height:138px; }
+.bento-stat .b-top { display:flex; align-items:center; justify-content:space-between; }
+.bento-stat .b-icon{
+  width:46px; height:46px; border-radius:13px;
+  display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+  background: var(--af-brown-soft); color: var(--af-brown-ink);
+  transition: transform .4s var(--af-ease);
+}
+.bento-card:hover .b-icon{ transform: translateY(-2px); }
+.bento-stat .b-trend{
+  font-size:.7rem; font-weight:700; display:inline-flex; align-items:center; gap:4px;
+  padding:4px 9px; border-radius:999px; color:var(--af-green); background:var(--af-green-bg);
+}
+.bento-stat .b-value{
+  font-size:clamp(1.7rem,2.4vw,2.15rem); font-weight:800; line-height:1;
+  color:var(--af-ink); letter-spacing:-.025em; font-variant-numeric:tabular-nums;
+}
+.bento-stat .b-label{
+  font-size:.82rem; font-weight:600; color:var(--af-muted); margin-top:7px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* Carte "Aperçu" large (claire) ------------------------------------------ */
+.bento-hero{ display:flex; flex-direction:column; justify-content:space-between; min-height:210px; }
+.bento-hero .h-kicker{ font-size:.74rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--af-brown-ink); }
+.bento-hero .h-title{ font-size:clamp(1.25rem,2.2vw,1.6rem); font-weight:800; letter-spacing:-.02em; color:var(--af-ink); margin:.5rem 0 .3rem; }
+.bento-hero .h-sub{ color:var(--af-muted); font-size:.9rem; max-width:48ch; line-height:1.55; }
+.bento-hero .h-foot{ display:flex; gap:14px; flex-wrap:wrap; margin-top:24px; }
+.bento-hero .h-stat{
+  flex:1; min-width:120px; background:var(--af-bg-2); border:1px solid var(--af-line-2);
+  border-radius:15px; padding:16px 18px;
+}
+.bento-hero .h-stat .v{ font-size:1.5rem; font-weight:800; color:var(--af-ink); letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+.bento-hero .h-stat .k{ font-size:.74rem; font-weight:600; color:var(--af-muted); margin-top:3px; }
+.bento-hero .h-stat.is-brown{ background:var(--af-brown-tint); border-color:#EBDFD2; }
+
+/* Carte Revenu (claire, accent marron) ----------------------------------- */
+.bento-earning{ display:flex; flex-direction:column; justify-content:space-between; min-height:210px; }
+.bento-earning .e-coin{
+  width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:var(--af-brown-soft); color:var(--af-brown-ink); font-size:1.25rem;
+}
+.bento-earning .e-label{ font-size:.82rem;font-weight:600;color:var(--af-muted);margin-bottom:6px; }
+.bento-earning .e-value{ font-size:clamp(1.4rem,2vw,1.8rem); font-weight:800; letter-spacing:-.02em; color:var(--af-ink); line-height:1.15; white-space:nowrap; }
+.bento-earning .e-pill{
+  align-self:flex-start; margin-top:14px; font-size:.72rem; font-weight:700;
+  color:var(--af-green); background:var(--af-green-bg); padding:5px 11px; border-radius:999px;
+}
+
+/* Carte répartition ------------------------------------------------------- */
+.bento-split .s-head{ font-size:.82rem; font-weight:600; color:var(--af-muted); }
+.bento-split .s-total{ font-size:1.7rem; font-weight:800; color:var(--af-ink); letter-spacing:-.02em; margin-top:4px; }
+.bento-split .s-row{ display:flex; align-items:center; gap:12px; margin-top:16px; }
+.bento-split .s-dot{ width:9px;height:9px;border-radius:50%; }
+.bento-split .s-meter{ flex:1; height:7px; border-radius:999px; background:var(--af-line); overflow:hidden; }
+.bento-split .s-meter > i{ display:block; height:100%; border-radius:999px; transform-origin:left; animation: af-bar 1.1s var(--af-ease) both; }
+.bento-split .s-val{ font-weight:700; font-size:.86rem; color:var(--af-ink-soft); min-width:42px; text-align:right; font-variant-numeric:tabular-nums; }
+
+/* Animations -------------------------------------------------------------- */
+@keyframes af-rise { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform:none; } }
+@keyframes af-bar  { from { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+
+/* ===================================================== Habillage global === */
+/* (s'applique à toutes les pages existantes, sans toucher au markup) */
+
+/* Cartes Bootstrap */
+.card {
+  border: 1px solid var(--af-line) !important;
+  border-radius: var(--af-r-md) !important;
+  box-shadow: var(--af-shadow) !important;
+  background: var(--af-card) !important;
+}
+.card-header { background: transparent !important; border-bottom: 1px solid var(--af-line) !important; }
+
+/* Boutons : accent marron léger, sobre */
+.btn-primary, .btn-secondary {
+  background: var(--af-brown) !important; border:1px solid var(--af-brown) !important;
+  color:#fff !important; font-weight:600 !important; border-radius:12px !important;
+  box-shadow:none !important;
+  transition: transform .25s var(--af-ease), filter .25s var(--af-ease) !important;
+}
+.btn-primary:hover, .btn-secondary:hover { filter:brightness(1.06); transform: translateY(-1px) !important; color:#fff !important; }
+.btn-danger  { background:#C2503A !important; border-color:#C2503A !important; border-radius:12px !important; }
+.btn-success { background:var(--af-green) !important; border-color:var(--af-green) !important; border-radius:12px !important; }
+.btn-light, .btn-outline-primary { border-radius:12px !important; }
+
+/* Tables */
+.table thead th {
+  color:var(--af-muted) !important; text-transform:uppercase; font-size:.72rem; letter-spacing:.05em;
+  font-weight:700 !important; border-color:var(--af-line) !important; background:transparent !important;
+}
+.table tbody tr { transition: background .2s var(--af-ease); }
+.table tbody tr:hover { background: var(--af-bg) !important; }
+.table td, .table th { border-color:var(--af-line) !important; color:var(--af-ink) !important; }
+
+/* Champs */
+.form-control, .form-select {
+  border:1px solid var(--af-line) !important; border-radius:12px !important;
+  color:var(--af-ink) !important; background:#fff !important;
+  transition: border-color .25s var(--af-ease), box-shadow .25s var(--af-ease) !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--af-brown) !important;
+  box-shadow: 0 0 0 4px var(--af-brown-soft) !important;
+}
+.col-form-label, label { color: var(--af-ink-soft) !important; }
+
+/* Badges sémantiques discrets */
+.badge.bg-primary  { background: var(--af-brown) !important; }
+.badge.bg-success  { background: var(--af-green) !important; }
+.badge.bg-warning  { background: var(--af-amber) !important; color:#fff !important; }
+
+/* Petits badges "pill" réutilisables */
+.af-pill{ display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:999px; }
+.af-pill.green{ color:var(--af-green); background:var(--af-green-bg); }
+.af-pill.amber{ color:var(--af-amber); background:var(--af-amber-bg); }
+.af-pill.brown{ color:var(--af-brown-ink); background:var(--af-brown-soft); }
+
+/* Liens */
+a { color: var(--af-brown-ink); }
+a:hover { color: var(--af-brown); }
+a.sidebar-link, a.sidebar-link:hover { color: inherit; }
+
+/* Scrollbar */
+*::-webkit-scrollbar { width:10px; height:10px; }
+*::-webkit-scrollbar-thumb { background:#E2DACF; border-radius:999px; }
+*::-webkit-scrollbar-thumb:hover { background:var(--af-brown); }
+
+/* ============================================================== LOGIN === */
+/* Le panneau de marque devient clair (marron léger), plus de noir lourd */
+.login-form-card { animation: af-rise .7s var(--af-ease) both; box-shadow: var(--af-shadow-2) !important; }
+.login-form-card .form-group { animation: af-rise .6s var(--af-ease) both; }
+.login-form-card .form-group:nth-of-type(1){animation-delay:.08s}
+.login-form-card .form-group:nth-of-type(2){animation-delay:.14s}
+.login-form-card .form-group:nth-of-type(3){animation-delay:.20s}
+.login-form-card .form-group:nth-of-type(4){animation-delay:.26s}
+.login-form-card .btn-login{ animation: af-rise .6s var(--af-ease) both; animation-delay:.32s; }
+.login-brand-logo{ animation: af-rise .8s var(--af-ease) both; }
+
+/* ============================ Overrides de l'ancien thème (color-1.css) ====
+   On allège le marron foncé / l'or trop présents. Le thème étant chargé en
+   dernier, on remet la main avec des valeurs claires. ====================== */
+
+/* Panneau de marque du login : marron chaud MOYEN (plus de quasi-noir) */
+.login-brand-panel {
+  background: linear-gradient(160deg, #8A6A4B 0%, #6E523A 60%, #5A4230 100%) !important;
+}
+.login-page-wrapper { background: var(--af-bg) !important; }
+.login-form-panel   { background: var(--af-bg) !important; }
+.login-form-card .btn-login {
+  background: var(--af-brown) !important;
+  box-shadow: 0 6px 18px var(--af-brown-soft) !important;
+}
+.login-form-card .btn-login:hover { filter: brightness(1.06); box-shadow: 0 10px 26px rgba(176,137,104,.35) !important; }
+
+/* Sidebar : accent marron léger au lieu de l'or */
+.sidebar-links .sidebar-list .sidebar-link:hover span,
+.sidebar-links .sidebar-list.active > .sidebar-link span,
+.sidebar-submenu li a:hover { color: var(--af-brown-ink) !important; }
+.sidebar-links .sidebar-list .sidebar-link:hover svg path,
+.sidebar-links .sidebar-list.active > .sidebar-link svg path { fill: var(--af-brown-ink) !important; }
+.sidebar-links .sidebar-list .sidebar-link:hover,
+.sidebar-links .sidebar-list.active > .sidebar-link {
+  background: var(--af-brown-soft) !important;
+  border-left: 3px solid var(--af-brown) !important;
+}
+.page-wrapper .page-header .header-wrapper .nav-right ul li:hover svg path { fill: var(--af-brown) !important; }
+.bg-primary-gradien { background: var(--af-brown) !important; }
+.txt-primary { color: var(--af-brown-ink) !important; }
+a { color: var(--af-brown-ink) !important; }
+a:hover { color: var(--af-brown) !important; }
+a.sidebar-link, a.sidebar-link:hover { color: inherit !important; }

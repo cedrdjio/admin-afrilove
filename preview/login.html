@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- AfriLove World — APERÇU STATIQUE de la page de connexion (sans PHP) -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AfriLove World — Aperçu Connexion</title>
+  <link rel="icon" href="../assets/images/afrilove-icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/color-1.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="stylesheet" href="../assets/css/afrilove-theme.css">
+</head>
+<body>
+<div class="login-page-wrapper">
+  <div class="login-brand-panel">
+    <img src="../assets/images/afrilove-icon.png" alt="AfriLove World" class="login-brand-logo">
+    <div class="login-brand-tagline">
+      Connecter les <em>cœurs.</em><br>
+      Rapprocher les <em>cultures.</em>
+    </div>
+    <div class="login-brand-divider"></div>
+    <p class="login-brand-desc">
+      Gérez votre plateforme de rencontres premium<br>
+      depuis un tableau de bord moderne et sécurisé.
+    </p>
+    <div class="login-brand-features">
+      <div class="feat"><div class="feat-icon">&#128737;</div><div><strong style="color:#fff;display:block;font-size:0.82rem;">Sécurisé</strong><span>Données protégées</span></div></div>
+      <div class="feat"><div class="feat-icon">&#128202;</div><div><strong style="color:#fff;display:block;font-size:0.82rem;">Performant</strong><span>Tableau de bord avancé</span></div></div>
+      <div class="feat"><div class="feat-icon">&#128101;</div><div><strong style="color:#fff;display:block;font-size:0.82rem;">Communauté</strong><span>Des milliers de membres</span></div></div>
+    </div>
+    <div style="position:absolute;bottom:28px;left:50px;color:rgba(255,255,255,0.3);font-size:0.73rem;z-index:1;">© 2026 AfriLove World. Tous droits réservés.</div>
+  </div>
+  <div class="login-form-panel">
+    <div class="login-form-card">
+      <div class="login-title">Bon retour 👋</div>
+      <p class="login-subtitle">Connectez-vous à votre espace d'administration.</p>
+      <form class="theme-form" method="post" autocomplete="off">
+        <div class="form-group"><label class="col-form-label">Email</label><input class="form-control" name="username" type="text" placeholder="admin@afrilove.world"></div>
+        <div class="form-group"><label class="col-form-label">Mot de passe</label><input class="form-control" type="password" placeholder="••••••••••••"></div>
+        <div class="form-group"><label class="col-form-label">Type d'utilisateur</label><select class="form-control"><option>Admin</option><option>Staff</option></select></div>
+        <div class="form-group"><label class="col-form-label">Langue du tableau de bord</label><select class="form-control"><option>Français</option><option>English</option></select></div>
+        <button class="btn-login" type="button">Se connecter &rarr;</button>
+        <div class="login-footer-copy">🔒 Connexion sécurisée SSL</div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
