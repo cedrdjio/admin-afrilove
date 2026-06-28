@@ -300,6 +300,15 @@ a.sidebar-link, a.sidebar-link:hover { color: inherit; }
 }
 .login-form-card .btn-login:hover { filter: brightness(1.06); box-shadow: 0 10px 26px rgba(176,137,104,.35) !important; }
 
+/* Sidebar / Navbar : logo horizontal propre (et on masque l'ancien texte dupliqué) */
+.page-wrapper .sidebar-wrapper .logo-wrapper a img,
+.sidebar-wrapper .logo-wrapper img.for-light,
+.page-header .logo-header-main img.for-light{
+  max-width:180px !important; max-height:58px !important;
+  width:auto !important; height:auto !important; object-fit:contain !important;
+}
+.afri-brand-name{ display:none !important; }
+
 /* Sidebar : accent marron léger au lieu de l'or */
 .sidebar-links .sidebar-list .sidebar-link:hover span,
 .sidebar-links .sidebar-list.active > .sidebar-link span,
@@ -317,3 +326,125 @@ a.sidebar-link, a.sidebar-link:hover { color: inherit; }
 a { color: var(--af-brown-ink) !important; }
 a:hover { color: var(--af-brown) !important; }
 a.sidebar-link, a.sidebar-link:hover { color: inherit !important; }
+
+/* ============================================================================
+   LOGIN v2 — maquette claire (classes .afl-*, indépendantes de l'ancien CSS)
+   ============================================================================ */
+.afl-login{
+  min-height:100vh; display:grid; grid-template-columns:1.05fr .95fr;
+  background:var(--af-bg); font-family:"Montserrat",system-ui,sans-serif;
+}
+@media (max-width:900px){ .afl-login{ grid-template-columns:1fr; } .afl-left{ display:none !important; } }
+
+/* ---- Panneau gauche (clair + motif discret) ---- */
+.afl-left{
+  position:relative; overflow:hidden; padding:54px 60px;
+  display:flex; flex-direction:column;
+  background:
+    radial-gradient(1100px 700px at 18% 30%, #FBF7F1 0%, #F4ECE0 55%, #EFE5D6 100%);
+}
+.afl-left::before{ /* carte du monde / halo doux */
+  content:""; position:absolute; inset:0; z-index:0; opacity:.5;
+  background:
+    radial-gradient(420px 420px at 62% 42%, rgba(176,137,104,.10), transparent 70%),
+    radial-gradient(280px 280px at 30% 78%, rgba(200,148,26,.08), transparent 70%);
+}
+.afl-left::after{ /* motif losange discret en bas-gauche (sans mask : compatible partout) */
+  content:""; position:absolute; left:0; bottom:0; width:42%; height:38%; z-index:0; opacity:.35;
+  background-image:
+    linear-gradient(135deg, rgba(176,137,104,.14) 1px, transparent 1px),
+    linear-gradient(45deg,  rgba(176,137,104,.14) 1px, transparent 1px);
+  background-size:26px 26px; background-position:0 100%;
+}
+.afl-left > *{ position:relative; z-index:1; }
+
+/* ---- Logo AFRILOVE WORLD (image horizontale propre) ---- */
+.afl-logo{ display:flex; align-items:center; margin-bottom:auto; animation:af-rise .7s var(--af-ease) both; }
+.afl-logo img{ width:clamp(220px,22vw,290px); height:auto; display:block; }
+
+/* ---- Accroche ---- */
+.afl-hero{ margin:48px 0; animation:af-rise .7s var(--af-ease) .06s both; }
+.afl-hero h1{
+  font-size:clamp(2rem,3.4vw,2.9rem); font-weight:800; line-height:1.12; letter-spacing:-.02em;
+  color:var(--af-ink); margin:0;
+}
+.afl-hero h1 em{ font-style:normal; color:var(--af-brown-ink); }
+.afl-hero .afl-rule{ width:64px; height:4px; border-radius:4px; background:var(--af-brown); margin:26px 0 24px; }
+.afl-hero p{ color:var(--af-ink-soft); font-size:1rem; line-height:1.6; max-width:42ch; margin:0; }
+
+/* ---- Features ---- */
+.afl-feats{ display:flex; gap:34px; flex-wrap:wrap; margin-top:6px; animation:af-rise .7s var(--af-ease) .12s both; }
+.afl-feat{ display:flex; align-items:center; gap:13px; }
+.afl-feat .ic{
+  width:48px; height:48px; border-radius:50%; background:#fff; color:var(--af-brown-ink);
+  display:flex; align-items:center; justify-content:center; font-size:1.05rem;
+  box-shadow:0 6px 16px rgba(31,26,22,.07);
+}
+.afl-feat b{ display:block; font-size:.9rem; font-weight:700; color:var(--af-ink); }
+.afl-feat span{ font-size:.8rem; color:var(--af-muted); }
+.afl-copy{ margin-top:auto; padding-top:40px; font-size:.78rem; color:var(--af-muted); }
+
+/* ---- Panneau droit + carte ---- */
+.afl-right{ display:flex; align-items:center; justify-content:center; padding:40px 36px; }
+.afl-card{
+  width:100%; max-width:440px; background:#fff; border:1px solid var(--af-line);
+  border-radius:26px; padding:42px 40px; box-shadow:0 24px 60px rgba(31,26,22,.10);
+  animation:af-rise .7s var(--af-ease) .04s both;
+}
+.afl-card h2{ font-size:1.7rem; font-weight:800; color:var(--af-ink); margin:0 0 6px; letter-spacing:-.01em; }
+.afl-card .afl-lead{ color:var(--af-muted); font-size:.92rem; margin:0 0 26px; }
+
+.afl-field{ margin-bottom:18px; }
+.afl-field > label{ display:block; font-size:.84rem; font-weight:700; color:var(--af-ink); margin-bottom:8px; }
+.afl-input{ position:relative; display:flex; align-items:center; }
+.afl-input .lead{ position:absolute; left:16px; color:var(--af-muted); font-size:.95rem; pointer-events:none; }
+.afl-input input, .afl-input select{
+  width:100%; height:52px; border:1.5px solid var(--af-line); border-radius:14px;
+  padding:0 16px 0 46px; font-size:.95rem; color:var(--af-ink); background:#fff;
+  font-family:inherit; transition:border-color .2s var(--af-ease), box-shadow .2s var(--af-ease);
+  -webkit-appearance:none; appearance:none;
+}
+.afl-input select{ cursor:pointer; }
+.afl-input input:focus, .afl-input select:focus{
+  outline:none; border-color:var(--af-brown); box-shadow:0 0 0 4px var(--af-brown-soft);
+}
+.afl-input .eye{
+  position:absolute; right:14px; background:none; border:none; cursor:pointer;
+  color:var(--af-muted); font-size:1rem; padding:6px; line-height:1;
+}
+.afl-input .eye:hover{ color:var(--af-brown-ink); }
+.afl-input .caret{ position:absolute; right:16px; color:var(--af-muted); pointer-events:none; font-size:.8rem; }
+
+.afl-row{ display:flex; align-items:center; justify-content:space-between; margin:6px 0 22px; }
+.afl-check{ display:flex; align-items:center; gap:9px; font-size:.86rem; color:var(--af-ink-soft); cursor:pointer; user-select:none; }
+.afl-check input{ position:absolute; opacity:0; width:0; height:0; }
+.afl-check .box{
+  width:20px; height:20px; border-radius:6px; border:1.5px solid var(--af-line);
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:.7rem;
+  background:#fff; transition:.2s;
+}
+.afl-check input:checked + .box{ background:var(--af-brown); border-color:var(--af-brown); }
+.afl-link{ font-size:.85rem; font-weight:600; color:var(--af-brown-ink); text-decoration:none; }
+.afl-link:hover{ color:var(--af-brown); }
+
+.afl-btn{
+  width:100%; height:56px; border:none; border-radius:15px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  font-size:1rem; font-weight:700; color:#fff; letter-spacing:.01em;
+  background:linear-gradient(135deg,#C9952B 0%,#A6702E 100%);
+  box-shadow:0 12px 26px rgba(166,112,46,.30);
+  transition:transform .22s var(--af-ease), box-shadow .22s var(--af-ease), filter .22s var(--af-ease);
+}
+.afl-btn:hover{ transform:translateY(-2px); filter:brightness(1.04); box-shadow:0 16px 34px rgba(166,112,46,.38); }
+.afl-btn .arr{ transition:transform .22s var(--af-ease); }
+.afl-btn:hover .arr{ transform:translateX(4px); }
+
+.afl-sep{ display:flex; align-items:center; gap:14px; margin:26px 0 18px; color:var(--af-muted); font-size:.8rem; }
+.afl-sep::before, .afl-sep::after{ content:""; flex:1; height:1px; background:var(--af-line); }
+.afl-secure{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.afl-secure .lock{
+  width:46px; height:46px; border-radius:50%; background:#fff; border:1px solid var(--af-line);
+  display:flex; align-items:center; justify-content:center; color:var(--af-brown-ink);
+  box-shadow:0 6px 16px rgba(31,26,22,.06);
+}
+.afl-secure span{ font-size:.84rem; color:var(--af-ink-soft); font-weight:600; }

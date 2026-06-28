@@ -8,7 +8,7 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M17 13C14.7909 13 13 14.7909 13 17C13 19.2091 14.7909 21 17 21C19.2091 21 21 19.2091 21 17C21 14.7909 19.2091 13 17 13ZM15 17C15 15.8954 15.8954 15 17 15C18.1046 15 19 15.8954 19 17C19 18.1046 18.1046 19 17 19C15.8954 19 15 18.1046 15 17Z" fill="#fff"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M7 13C4.79086 13 3 14.7909 3 17C3 19.2091 4.79086 21 7 21C9.20914 21 11 19.2091 11 17C11 14.7909 9.20914 13 7 13ZM5 17C5 15.8954 5.89543 15 7 15C8.10457 15 9 15.8954 9 17C9 18.1046 8.10457 19 7 19C5.89543 19 5 18.1046 5 17Z" fill="#fff"/>
 </svg></div>
-            <div class="logo-header-main"><a href="dashboard.php"><img class="img-fluid for-light img-100" src="assets/images/afrilove-icon.png" alt="AfriLove World"><img class="img-fluid for-dark" src="assets/images/afrilove-icon.png" alt="AfriLove World"></a></div>
+            <div class="logo-header-main"><a href="dashboard.php"><img class="img-fluid for-light img-100" src="assets/images/afrilove-logo.png" alt="AfriLove World"><img class="img-fluid for-dark" src="assets/images/afrilove-logo.png" alt="AfriLove World"></a></div>
           </div>
           <div class="left-header col horizontal-wrapper ps-0">
             <div class="left-menu-header">

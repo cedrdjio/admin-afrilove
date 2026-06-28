@@ -14,7 +14,7 @@ else
 ?>
  <div class="sidebar-wrapper">
           <div>
-            <div class="logo-wrapper"><a href="dashboard.php"><img class="img-fluid for-light" src="assets/images/afrilove-icon.png" alt="AfriLove World" style="max-height:60px;width:auto;"></a>
+            <div class="logo-wrapper"><a href="dashboard.php"><img class="img-fluid for-light" src="assets/images/afrilove-logo.png" alt="AfriLove World"></a>
               <span class="afri-brand-name">AfriLove<span>— World —</span></span>
               <div class="back-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 4.79086 4.79086 3 7 3C9.20914 3 11 4.79086 11 7C11 9.20914 9.20914 11 7 11C4.79086 11 3 9.20914 3 7ZM7 5C5.89543 5 5 5.89543 5 7C5 8.10457 5.89543 9 7 9C8.10457 9 9 8.10457 9 7C9 5.89543 8.10457 5 7 5Z" fill="#fff"/>
