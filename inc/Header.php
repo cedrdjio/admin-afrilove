@@ -26,11 +26,7 @@ include 'inc/Gomeet.php';
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap-tagsinput/bootstrap-tagsinput.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/vendors/select2.css">
     <link rel="stylesheet" type="text/css" href="assets/css/vendors/bootstrap.css">
-    <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link id="color" rel="stylesheet" href="assets/css/color-1.css" media="screen">
-    <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <!-- Color picker (conservé) -->
 	<link rel="stylesheet" type="text/css" href="assets/css/picker.css">
 
     <!-- Tailwind CSS (CDN) configuré avec la palette AfriLove -->
@@ -53,8 +49,12 @@ include 'inc/Gomeet.php';
         }
       };
     </script>
-    <!-- Thème AfriLove (Bento + animations) — chargé en dernier pour primer -->
+    <!-- Thème AfriLove COMPLET (remplace style.css/color-1/responsive) -->
     <link rel="stylesheet" type="text/css" href="assets/css/afrilove-theme.css">
+
+    <!-- GSAP (animations fluides) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   </head>
   <body >
     <!-- tap on top starts-->

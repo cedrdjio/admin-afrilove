@@ -18,6 +18,8 @@
 <script src="assets/js/summer.js"></script>
 <!-- picker js -->
 <script src="assets/js/picker.js"></script>
+<!-- AfriLove : sidebar mobile + animations GSAP -->
+<script src="assets/js/afrilove.js"></script>
 
 <script>
 $(document).ready(function () {
