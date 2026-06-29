@@ -29,28 +29,17 @@ include 'inc/Gomeet.php';
     <!-- Color picker (conservé) -->
 	<link rel="stylesheet" type="text/css" href="assets/css/picker.css">
 
-    <!-- Tailwind CSS (CDN) configuré avec la palette AfriLove -->
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
-        corePlugins: { preflight: false }, /* ne réinitialise pas Bootstrap : rien ne casse */
-        prefix: 'tw-',                      /* toutes les classes Tailwind = tw-… : zéro collision avec Bootstrap */
-        theme: {
-          extend: {
-            colors: {
-              cream: '#FAF5EE',
-              ink:   '#2C1A0E',
-              gold:  { DEFAULT: '#C8941A', light: '#E8B84B' },
-              rust:  { DEFAULT: '#B5391E', light: '#E07B39' },
-              sand:  '#8B7355'
-            },
-            fontFamily: { sans: ['Montserrat', 'system-ui', 'sans-serif'] }
-          }
-        }
+        corePlugins: { preflight: false },
+        prefix: 'tw-',
+        theme: { extend: { fontFamily: { sans: ['Montserrat','system-ui','sans-serif'] } } }
       };
     </script>
-    <!-- Thème AfriLove COMPLET (remplace style.css/color-1/responsive) -->
-    <link rel="stylesheet" type="text/css" href="assets/css/afrilove-theme.css">
+    <!-- STYLE UNIQUE de l'admin (réécriture complète). ?v= = anti-cache -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260629">
 
     <!-- GSAP (animations fluides) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

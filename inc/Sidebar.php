@@ -47,7 +47,7 @@ else
 	{
 		?>
 		<div id="sidebar-menu">
-                <ul class="sidebar-links" id="simple-bar">
+                <ul class="sidebar-links">
                   <li class="back-btn">
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
@@ -372,7 +372,7 @@ else
 	{
 	?>
               <div id="sidebar-menu">
-                <ul class="sidebar-links" id="simple-bar">
+                <ul class="sidebar-links">
                   <li class="back-btn">
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
