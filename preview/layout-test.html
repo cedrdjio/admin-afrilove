@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Test LAYOUT sidebar/navbar avec le VRAI CSS du template + correctif thème.
+     On simule volontairement l'état cassé (.close_icon) pour vérifier le fix. -->
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AfriLove — Test layout</title>
+<link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/color-1.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+<link rel="stylesheet" href="../assets/css/afrilove-theme.css">
+</head>
+<body>
+<!-- compact-wrapper + close_icon = état "replié" cassé qu'on veut corriger -->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+  <!-- NAVBAR -->
+  <div class="page-header close_icon">
+    <div class="header-wrapper row m-0">
+      <div class="header-logo-wrapper col-auto p-0">
+        <div class="toggle-sidebar"><i class="fas fa-bars"></i></div>
+        <div class="logo-header-main"><a href="#"><img class="img-fluid for-light img-100" src="../assets/images/afrilove-logo.png" alt="AfriLove World"></a></div>
+      </div>
+      <div class="nav-right col-6 pull-right right-header p-0">
+        <ul class="nav-menus" style="display:flex;justify-content:flex-end;gap:18px;align-items:center;list-style:none;margin:0">
+          <li><i class="fas fa-moon"></i></li>
+          <li><i class="fas fa-bell"></i></li>
+          <li><i class="fas fa-user-circle"></i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-body-wrapper">
+    <!-- SIDEBAR (avec close_icon) -->
+    <div class="sidebar-wrapper close_icon">
+      <div>
+        <div class="logo-wrapper"><a href="#"><img class="img-fluid for-light" src="../assets/images/afrilove-logo.png" alt="AfriLove World"></a>
+          <span class="afri-brand-name">AfriLove<span>— World —</span></span>
+          <div class="back-btn"><i class="fas fa-angle-left"></i></div>
+        </div>
+        <div class="logo-icon-wrapper"><a href="#"><div class="icon-box-sidebar"><i class="fas fa-th"></i></div></a></div>
+        <nav class="sidebar-main">
+          <div id="sidebar-menu">
+            <ul class="sidebar-links" id="simple-bar">
+              <li class="menu-box">
+                <ul>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav active" href="#"><i class="fas fa-house" style="width:22px"></i><span>Tableau de bord</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-heart" style="width:22px"></i><span>Intérêt</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-earth-africa" style="width:22px"></i><span>Langue</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-place-of-worship" style="width:22px"></i><span>Religion</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-gift" style="width:22px"></i><span>Cadeau</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-crown" style="width:22px"></i><span>Plan</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-users" style="width:22px"></i><span>Liste d'utilisateur</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="#"><i class="fas fa-gear" style="width:22px"></i><span>Paramètres</span></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PAGE BODY -->
+    <div class="page-body">
+      <div class="container-fluid pt-4 pb-4">
+        <div class="afri-greeting mb-4">
+          <div>
+            <h2 class="afri-greeting-title">Bonjour, Admin 👋</h2>
+            <p class="afri-greeting-sub">Voici un aperçu de votre plateforme AfriLove World.</p>
+          </div>
+          <div class="afri-greeting-date"><i class="fas fa-calendar-day me-2" style="color:var(--af-brown)"></i>28 Juin 2026</div>
+        </div>
+        <p class="afri-section-label">Vue d'ensemble</p>
+        <div class="afri-bento">
+          <div class="bento-card bento-stat"><div class="b-top"><div class="b-icon"><i class="fas fa-heart"></i></div><span class="b-trend"><i class="fas fa-arrow-trend-up"></i></span></div><div><div class="b-value">48</div><div class="b-label">Centres d'intérêt</div></div></div>
+          <div class="bento-card bento-stat"><div class="b-top"><div class="b-icon"><i class="fas fa-earth-africa"></i></div><span class="b-trend"><i class="fas fa-arrow-trend-up"></i></span></div><div><div class="b-value">32</div><div class="b-label">Langues</div></div></div>
+          <div class="bento-card bento-stat"><div class="b-top"><div class="b-icon"><i class="fas fa-place-of-worship"></i></div><span class="b-trend"><i class="fas fa-arrow-trend-up"></i></span></div><div><div class="b-value">14</div><div class="b-label">Religions</div></div></div>
+          <div class="bento-card bento-stat"><div class="b-top"><div class="b-icon"><i class="fas fa-crown"></i></div><span class="b-trend"><i class="fas fa-arrow-trend-up"></i></span></div><div><div class="b-value">6</div><div class="b-label">Plans</div></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

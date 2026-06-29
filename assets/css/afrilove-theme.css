@@ -448,3 +448,62 @@ a.sidebar-link, a.sidebar-link:hover { color: inherit !important; }
   box-shadow:0 6px 16px rgba(31,26,22,.06);
 }
 .afl-secure span{ font-size:.84rem; color:var(--af-ink-soft); font-weight:600; }
+
+/* ============================================================================
+   SIDEBAR / NAVBAR — correctif layout
+   Le template replie la sidebar (.close_icon) dès ≤1385px, ce qui casse
+   l'affichage. On force une sidebar FIXE toujours ouverte sur desktop,
+   on supprime le logo violet et les boutons de repli.
+   ============================================================================ */
+
+/* Logo : jamais le carré violet par défaut */
+.page-wrapper .page-body-wrapper .logo-icon-wrapper{ display:none !important; }
+.logo-icon-wrapper .icon-box-sidebar{ background:var(--af-brown) !important; }
+
+/* Boutons de repli/back qui cassent l'affichage */
+.sidebar-wrapper .back-btn,
+.page-header .header-wrapper .toggle-sidebar{ display:none !important; }
+
+@media (min-width: 992px){
+  /* Sidebar fixe 260px, blanche, toujours visible (même si .close_icon) */
+  .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper,
+  .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper.close_icon{
+    width:260px !important; left:0 !important; transform:none !important;
+    background:#fff !important; border-right:1px solid var(--af-line) !important;
+    box-shadow:0 0 24px rgba(31,26,22,.05) !important;
+  }
+  /* Header + contenu décalés de 260px */
+  .page-wrapper.compact-wrapper .page-header,
+  .page-wrapper.compact-wrapper .page-header.close_icon{
+    margin-left:260px !important; width:calc(100% - 260px) !important;
+  }
+  .page-wrapper.compact-wrapper .page-body-wrapper .page-body{
+    margin-left:260px !important;
+  }
+  /* Forcer l'état "ouvert" : libellés, titres et logo visibles même en .close_icon */
+  .page-wrapper.compact-wrapper .sidebar-wrapper.close_icon .logo-wrapper{ display:flex !important; align-items:center; opacity:1 !important; }
+  .page-wrapper.compact-wrapper .sidebar-wrapper.close_icon .sidebar-main .sidebar-links .sidebar-list .sidebar-link span,
+  .page-wrapper.compact-wrapper .sidebar-wrapper.close_icon .sidebar-link .according-menu,
+  .page-wrapper.compact-wrapper .sidebar-wrapper.close_icon .sidebar-title,
+  .page-wrapper.compact-wrapper .sidebar-wrapper.close_icon .menu-title{
+    display:inline-block !important; opacity:1 !important; visibility:visible !important; width:auto !important;
+  }
+  .page-wrapper.compact-wrapper .sidebar-wrapper.close_icon .sidebar-main .sidebar-links{ height:auto !important; }
+}
+
+/* Mobile : sidebar masquée par défaut, ouverte via le bouton (.close_icon) */
+@media (max-width: 991px){
+  .page-header .header-wrapper .toggle-sidebar{ display:inline-flex !important; }
+  .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper{
+    transform:translateX(-100%) !important; transition:transform .3s !important;
+    width:260px !important; background:#fff !important; z-index:99 !important;
+  }
+  .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper.close_icon{
+    transform:translateX(0) !important;
+  }
+  .page-wrapper.compact-wrapper .page-header,
+  .page-wrapper.compact-wrapper .page-header.close_icon,
+  .page-wrapper.compact-wrapper .page-body-wrapper .page-body{
+    margin-left:0 !important; width:100% !important;
+  }
+}
