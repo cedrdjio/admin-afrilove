@@ -1,0 +1,40 @@
+# AfriLove World — pile complète locale : app PHP + MySQL
+# Lancement : docker compose up   →   http://localhost:8080
+#
+# Avant de lancer : place ton dump SQL dans  ./db/init.sql
+# (il sera importé automatiquement au premier démarrage).
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      DB_HOST: db
+      DB_USER: afrilove
+      DB_PASS: afrilove
+      DB_NAME: dbs15826648
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: dbs15826648
+      MYSQL_USER: afrilove
+      MYSQL_PASSWORD: afrilove
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  dbdata:

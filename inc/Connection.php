@@ -12,10 +12,12 @@ if (session_status() == PHP_SESSION_NONE) {
    un UTILISATEUR (ex. dboxxxxxxxx), un MOT DE PASSE (celui que tu as défini),
    et le NOM de la base (ex. dbs15826648).
    ============================================================================ */
-$DB_HOST = "localhost";        // ← HÔTE MySQL IONOS (souvent dbXXXX.hosting-data.io)
-$DB_USER = "root";             // ← UTILISATEUR MySQL IONOS
-$DB_PASS = "";                 // ← MOT DE PASSE MySQL IONOS
-$DB_NAME = "dbs15826648";      // ← NOM de la base IONOS
+/* Priorité aux variables d'environnement (conteneur Docker / Railway / Render),
+   sinon valeurs en dur ci-dessous (édite-les pour IONOS). */
+$DB_HOST = getenv('DB_HOST') ?: "localhost";        // ← HÔTE MySQL IONOS (souvent dbXXXX.hosting-data.io)
+$DB_USER = getenv('DB_USER') ?: "root";             // ← UTILISATEUR MySQL IONOS
+$DB_PASS = (getenv('DB_PASS') !== false) ? getenv('DB_PASS') : "";  // ← MOT DE PASSE MySQL IONOS
+$DB_NAME = getenv('DB_NAME') ?: "dbs15826648";      // ← NOM de la base IONOS
 
 if (isset($_SESSION["sel_lan"])) {
     $currentLang = $_SESSION["sel_lan"];

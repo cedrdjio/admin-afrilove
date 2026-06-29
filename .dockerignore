@@ -1,0 +1,5 @@
+.git
+node_modules
+preview
+*.md
+db/init.sql

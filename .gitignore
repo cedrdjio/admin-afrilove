@@ -8,3 +8,6 @@ Thumbs.db
 
 # Config locale sensible (à NE PAS versionner si elle contient des identifiants)
 # inc/Connection.php   # décommente si tu y mets tes identifiants IONOS en prod
+
+# Dump SQL local (ne pas versionner)
+db/init.sql
